@@ -34,8 +34,8 @@ const App: Component = () => {
       <div class="px-8">
         <p class="text-4xl text-blue-800 text-center py-8">G5 Logfile Linter</p>
         <p class="text-center">
-          Fixes GPS date rollover and bogus default Lat/Long coordinates in your log
-          files.
+          Fixes GPS date rollover and bogus default Lat/Long coordinates in DATA_LOG files
+          from your Garmin G5 avionics.
         </p>
         {error() && (
           <ErrorAlert>
