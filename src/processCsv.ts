@@ -20,7 +20,7 @@ export async function processCsv(file: File) {
   const millisecondsIn1024Weeks = 1024 * 7 * 24 * 60 * 60 * 1000
 
   let processedData = parsed.data.map(row => {
-    const utcDate = new Date(row[0])
+    const utcDate = new Date(row[0] as string)
 
     if (utcDate < cutoffDate) {
       utcDate.setTime(utcDate.getTime() + millisecondsIn1024Weeks)
@@ -33,8 +33,8 @@ export async function processCsv(file: File) {
   // If the row contains the bogus Garmin Lat/Log value, remove it as it confuses later
   // processing steps.
   processedData = processedData.map(row => {
-    const lat = row[4]
-    const long = row[5]
+    const lat = row[4] as string
+    const long = row[5] as string
 
     if (lat === '+39.0675011' && long === '-94.8976669') {
       row[4] = ''
