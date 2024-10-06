@@ -30,21 +30,24 @@ const App: Component = () => {
   const dropzone = createDropzone({ onDrop, maxFiles: 1 })
 
   return (
-    <div class="container mx-auto max-w-xl">
-      <p class="text-4xl text-blue-800 text-center py-16">G5 Logfile Linter</p>
-      <p>
-        Fixes GPS date rollover and bogus default Lat/Long coordinates in your log files.
-      </p>
-      {error() && (
-        <ErrorAlert>
-          <p>{error()}</p>
-        </ErrorAlert>
-      )}
-      <Dropzone
-        className={'py-4'}
-        rootProps={dropzone.getRootProps()}
-        inputProps={dropzone.getInputProps()}
-      />
+    <div class="container mx-auto max-w-2xl">
+      <div class="px-8">
+        <p class="text-4xl text-blue-800 text-center py-16">G5 Logfile Linter</p>
+        <p>
+          Fixes GPS date rollover and bogus default Lat/Long coordinates in your log
+          files.
+        </p>
+        {error() && (
+          <ErrorAlert>
+            <p>{error()}</p>
+          </ErrorAlert>
+        )}
+        <Dropzone
+          className={'py-4'}
+          rootProps={dropzone.getRootProps()}
+          inputProps={dropzone.getInputProps()}
+        />
+      </div>
     </div>
   )
 }
